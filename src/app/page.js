@@ -10,22 +10,33 @@ export default function Home() {
   const [authorQuotes, setAuthorQuotes] = useState({});
 
   useEffect(() => {
-    // Combine all author quotes
     const allAuthors = {
       'Marcus Aurelius': marcusQuotes,
       'Seneca': senecaQuotes,
       'Epictetus': epictetusQuotes,
     };
 
-    // Select a random author
-    const authors = Object.keys(allAuthors);
-    const randomAuthor = authors[Math.floor(Math.random() * authors.length)];
+    const getOrSetDailyQuote = () => {
+      const storedQuote = localStorage.getItem('dailyQuote');
+      const storedDate = localStorage.getItem('quoteDate');
+      const today = new Date().toDateString();
 
-    // Select a random quote from the chosen author
-    const authorQuotes = allAuthors[randomAuthor];
-    const randomQuote = authorQuotes[Math.floor(Math.random() * authorQuotes.length)];
+      if (storedQuote && storedDate === today) {
+        return JSON.parse(storedQuote);
+      } else {
+        const authors = Object.keys(allAuthors);
+        const randomAuthor = authors[Math.floor(Math.random() * authors.length)];
+        const authorQuotes = allAuthors[randomAuthor];
+        const randomQuote = authorQuotes[Math.floor(Math.random() * authorQuotes.length)];
 
-    setDailyQuote({ text: randomQuote, author: randomAuthor });
+        const newQuote = { text: randomQuote, author: randomAuthor };
+        localStorage.setItem('dailyQuote', JSON.stringify(newQuote));
+        localStorage.setItem('quoteDate', today);
+        return newQuote;
+      }
+    };
+
+    setDailyQuote(getOrSetDailyQuote());
     setAuthorQuotes(allAuthors);
   }, []);
 
