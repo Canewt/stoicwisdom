@@ -1,6 +1,7 @@
 import { NextResponse } from 'next/server';
-import marcusQuotes from '../../../data/marcus_aurelius';
-import senecaQuotes from '../../../data/seneca';
+import marcusAureliusQuotes from '../../data/marcus_aurelius';
+import senecaQuotes from '../../data/seneca';
+import epictetusQuotes from '../../data/epictetus';
 
 export async function GET(request) {
   const { searchParams } = new URL(request.url);
@@ -9,9 +10,11 @@ export async function GET(request) {
   try {
     let quotes;
     if (author === 'marcus_aurelius') {
-      quotes = marcusQuotes;
+      quotes = marcusAureliusQuotes;
     } else if (author === 'seneca') {
       quotes = senecaQuotes;
+    } else if (author === 'epictetus') {
+      quotes = epictetusQuotes;
     } else {
       throw new Error('Invalid author');
     }
