@@ -4,6 +4,7 @@ import React, { useState, useEffect } from 'react';
 import marcusQuotes from './data/marcus_aurelius';
 import senecaQuotes from './data/seneca';
 import epictetusQuotes from './data/epictetus';
+import zenoQuotes from './data/zeno';
 
 export default function Home() {
   const [dailyQuote, setDailyQuote] = useState(null);
@@ -14,6 +15,7 @@ export default function Home() {
       'Marcus Aurelius': marcusQuotes,
       'Seneca': senecaQuotes,
       'Epictetus': epictetusQuotes,
+      'Zeno': zenoQuotes
     };
 
     const getOrSetDailyQuote = () => {
