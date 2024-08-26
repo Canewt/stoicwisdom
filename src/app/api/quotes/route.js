@@ -11,15 +11,15 @@ const allAuthors = {
   'Zeno': zenoQuotes
 };
 
-let dailyQuote = null;
-let lastUpdated = null;
-
-function getNewQuote() {
-  const authors = Object.keys(allAuthors);
-  const randomAuthor = authors[Math.floor(Math.random() * authors.length)];
-  const authorQuotes = allAuthors[randomAuthor];
-  const randomQuote = authorQuotes[Math.floor(Math.random() * authorQuotes.length)];
-  return { text: randomQuote, author: randomAuthor };
+function getQuoteForDate(date) {
+  const allQuotes = Object.entries(allAuthors).flatMap(([author, quotes]) => 
+    quotes.map(quote => ({ text: quote, author }))
+  );
+  
+  const seed = date.getFullYear() * 10000 + (date.getMonth() + 1) * 100 + date.getDate();
+  const index = seed % allQuotes.length;
+  
+  return allQuotes[index];
 }
 
 export async function GET(request) {
@@ -32,12 +32,7 @@ export async function GET(request) {
     }
 
     const now = new Date();
-    const today = now.toDateString();
-
-    if (!dailyQuote || !lastUpdated || lastUpdated !== today) {
-      dailyQuote = getNewQuote();
-      lastUpdated = today;
-    }
+    const dailyQuote = getQuoteForDate(now);
 
     return NextResponse.json(dailyQuote);
   } catch (error) {
