@@ -1,4 +1,4 @@
-export default [
+const quotes = [
   "We suffer more often in imagination than in reality.",
   "Luck is what happens when preparation meets opportunity.",
   "Sometimes even to live is an act of courage.",
@@ -17,3 +17,5 @@ export default [
   "It is not that we are given a short life, but we make it short. And we are not ill-supplied, but wasteful of it.",
   "Two elements must therefore be rooted out once for all, – the fear of future suffering, and the recollection of past suffering; since the latter no longer concerns me, and the former concerns me not yet."
 ];
+
+export default quotes;

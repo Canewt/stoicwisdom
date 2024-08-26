@@ -1,4 +1,4 @@
-export default [
+const quotes = [
     "If you want to improve, be content to be thought foolish and stupid.",
     "There is only one way to happiness and that is to cease worrying about things which are beyond the power of our will.",
     "Circumstances don't make the man, they only reveal him to himself.",
@@ -15,3 +15,5 @@ export default [
     "To accuse others for one's own misfortunes is a sign of want of education. To accuse oneself shows that one's education has begun. To accuse neither oneself nor others shows that one's education is complete.",
     "It is impossible for a man to learn what he thinks he already knows."
 ];
+
+export default quotes;
