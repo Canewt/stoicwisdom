@@ -1,6 +1,7 @@
 import './globals.css'
 import Navbar from './components/navbar'
 
+
 export const metadata = {
   title: 'Stoic Wisdom',
   description: 'Daily Stoic quotes for inspiration and reflection',

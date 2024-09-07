@@ -10,7 +10,7 @@ export default function Navbar() {
         </Link>
         <ul className="flex space-x-4 sm:w-1/3 sm:justify-end">
           <li><Link href="/" className="text-[#4A5568] hover:text-[#2D3748]">Home</Link></li>
-          <li><Link href="/about" className="text-[#4A5568] hover:text-[#2D3748]">Books</Link></li>
+          <li><Link href="/books" className="text-[#4A5568] hover:text-[#2D3748]">Books</Link></li>
         </ul>
       </div>
     </nav>

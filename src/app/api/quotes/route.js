@@ -12,7 +12,7 @@ const allAuthors = {
 };
 
 // Set the hour when the quote should change (0-23)
-const QUOTE_CHANGE_HOUR = 1; // Change this to your desired hour (e.g., 5 for 5 AM)
+const QUOTE_CHANGE_HOUR = 0; // Change this to your desired hour (e.g., 5 for 5 AM)
 
 function getQuoteForDate(date) {
   const allQuotes = Object.entries(allAuthors).flatMap(([author, quotes]) => 
